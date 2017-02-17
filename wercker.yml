@@ -7,6 +7,11 @@ box: ruby:2.3
     # http://devcenter.wercker.com/docs/services/postgresql.html
 services:
      - mysql
+     env:
+        MYSQL_ROOT_PASSWORD: root_password
+        MYSQL_USER: testuser
+        MYSQL_PASSWORD: testuser
+        MYSQL_DATABASE: testdb
     # - mongo
     # http://devcenter.wercker.com/docs/services/mongodb.html
 
