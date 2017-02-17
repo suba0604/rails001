@@ -39,6 +39,3 @@ build:
         - script:
             name: rspec
             code: bundle exec rspec
-            
-            
-            
