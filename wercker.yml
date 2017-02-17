@@ -6,7 +6,7 @@ box: ruby:2.3
     # - postgres
     # http://devcenter.wercker.com/docs/services/postgresql.html
 services:
-  - wercker/mysql
+     - mysql
     # - mongo
     # http://devcenter.wercker.com/docs/services/mongodb.html
 
