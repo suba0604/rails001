@@ -8,6 +8,7 @@ gem 'rails', '4.2.5'
 #gem 'mysql2'
 #gem 'rails_12factor', group: :production
 gem 'rspec'
+gem 'uglifier'
 ## H.saito Add >>>>>>>>>>>>>>>>>>>>>>>>>>>>
 gem 'pg'
 gem 'rails_12factor', group: :production
