@@ -1,6 +1,4 @@
-# https://registry.hub.docker.com/_/ruby/
 box: ruby:2.3
-# You can also use services such as databases. Read more on our dev center:
 # http://devcenter.wercker.com/docs/services/index.html
 services:
      - postgres
@@ -33,9 +31,19 @@ build:
                echo “ruby version $(ruby –version) running!”
                echo “from location $(which ruby)”
                echo -p “gem list: $(gem list)”
-#        - script:
-#            name: Set up db
-#            code: RAILS_ENV=test bundle exec rake db:schema:load
+        - script:
+            name: Set up db
+            code: bundle exec rake db:schema:load
         - script:
             name: rspec
             code: bundle exec rspec
+deploy:
+     steps:
+         - heroku-deploy:
+             install-toolbelt: true
+         - script:
+             name: Update database
+             code: heroku run rake db:migrate –app $HEROKU_APP_NAME
+         - script:
+             name: Update assets
+             code: heroku run rake add_static_assets –app $HEROKU_APP_NAME
